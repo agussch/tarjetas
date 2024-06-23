@@ -6,9 +6,10 @@ const Container = () => {
   const [isValid, setIsValid] = useState(null);
 
   const handleChange = (e) => {
-    const value = e.target.value.replace(/\D/g, ''); 
+    const value = e.target.value.replace(/\D/g, ''); // Elimina caracteres no numéricos
     setCardNumber(value);
     
+    // Limpiar el estado isValid cuando se modifica el número de tarjeta
     if (isValid !== null) {
       setIsValid(null);
     }
@@ -37,11 +38,13 @@ const Container = () => {
     return sum % 10 === 0;
   };
 
+  // Deshabilitar el botón de validación si cardNumber no tiene 16 dígitos
   const isDisabled = cardNumber.length !== 16;
 
+  // Función para generar la representación visual de la tarjeta
   const generateCardDisplay = () => {
     const maxLength = 16;
-    const maskedNumber = '•••• •••• •••• ••••'; 
+    const maskedNumber = '•••• •••• •••• ••••'; // Representación inicial
     let displayNumber = '';
 
     for (let i = 0; i < maxLength; i++) {
@@ -51,7 +54,8 @@ const Container = () => {
         displayNumber += maskedNumber[i];
       }
 
-      if ((i + 1) % 4 === 0 && i !== maxLength - 1) {
+      // Agregar un espacio entre cada bloque de 4 números
+      if ((i + 1) % 4 === 0 && i !== maxLength - 1 && i < 15) {
         displayNumber += ' ';
       }
     }
