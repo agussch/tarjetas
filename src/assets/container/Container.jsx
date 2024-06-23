@@ -66,6 +66,17 @@ const Container = () => {
   return (
     <div className='cont'>
       <h1>Validador de Tarjetas de Crédito</h1>
+
+      <div className="card-display">
+        <div className="cont-card-number">
+            
+            <div className="card-number">
+            {generateCardDisplay()}
+            </div>
+        </div>
+        
+      </div>
+
       <input
         type="text"
         value={cardNumber}
@@ -83,12 +94,7 @@ const Container = () => {
         <p>La tarjeta es válida.</p>
       )}
 
-      <div className="card-display">
-        <h2>Representación de la Tarjeta</h2>
-        <div className="card-number">
-          {generateCardDisplay()}
-        </div>
-      </div>
+      
     </div>
   );
 };
