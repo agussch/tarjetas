@@ -5,11 +5,10 @@ import Header from "../../assets/header/Header"
 const Landing = () => {
     return (
       <>
-          <Header/>
-          <Container/>
-          <Footer/>
+        <Header/>
+        <Container/>
+        <Footer/>
       </>
     )
   }
-  
   export default Landing
